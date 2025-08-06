@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎓 Badapur boys group</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: #f2f2f2;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      background: #678;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background: #ddd;
+    }
+    .controls input, .controls select {
+      padding: 10px;
+      font-size: 16px;
+      width: 48%;
+    }
+    .students {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px;
+    }
+    .student-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin: 10px;
+      width: 200px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .student-card:hover {
+      transform: scale(1.05);
+    }
+    .student-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .student-card h3 {
+      margin: 10px 0 5px;
+    }
+    .student-card p {
+      margin: 0;
+      font-size: 14px;
+    }
+    .student-card a {
+      display: inline-block;
+      margin: 10px;
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .dark-mode {
+      background: #121212;
+      color: #eee;
+    }
+    .dark-mode .student-card {
+      background: #1e1e1e;
+      color: white;
+    }
+    .dark-mode .controls {
+      background: #222;
+    }
+    .toggle-dark {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #000;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<div class="toggle-dark" onclick="toggleDark()">🌙</div>
+
+<header>
+  <h1>🎓 Badapur boys group</h1>
+</header>
+
+<div class="controls">
+  <input type="text" id="search" placeholder="Search by name..." onkeyup="filterStudents()">
+  <select id="classFilter" onchange="filterStudents()">
+    <option value="">All Classes</option>
+    <option value="1st">Class 1st</option>
+    <option value="2nd">Class 2nd</option>
+    <option value="3rd">Class 3rd</option>
+    <option value="4th">Class 4th</option>
+    <option value="5th">Class 5th</option>
+    <option value="6th"     >class 6th</option>
+      <option value="7th"   >class 7th</option>
+      <option value="8th".  >class 8th</option>
+      <option value="9th"   >class 9th</option>
+      <option value="10th". >class 10th</option>
+      <option value="first year".    > first year</option>
+      <option value="2nd year".            >2nd year</option>
+      <option value="college drop out">college drop out</option>
+    <!-- Add more as needed -->
+  </select>
+</div>
+
+<div class="students" id="studentsList">
+  <!-- Example Student -->
+  <div class="student-card" data-name="siba" data-class="10th">
+    <img src="/image /siba.jpg" alt="Siba">
+    <h3>SIBA LIMA</h3>
+    <p>Class: 10th pass out</p>
+    <a href="https://instagram.com/im_your305" target="_blank">📸 Instagram</a>
+  </div>
+
+  <div class="student-card" data-name="sublan" data-class="first year">
+    <img src="/image /raja.jpg" alt="sublan">
+    <h3>SUBLAN KADRAKA</h3>
+    <p>Class: first year</p>
+    <a href="https://instagram.com/heyy___sublan_" target="_blank">📸 Instagram</a>
+  </div>
+
+  <div class="student-card" data-name="devid" data-class="2nd year">
+    <img src="/image /ranjan.jpg" alt="DEVID">
+    <h3>DEVID BALIARSINGH</h3>
+    <p>Class: 2ND YEAR</p>
+    <a href="https://instagram.com/itz_devid_18x" target="_blank">📸 Instagram</a>
+  </div>
+  
+    <div class="student-card" data-name="pramit pani" data-class="10th">
+      <img src="/image /pramit.jpg" alt="pramit">
+      <h3>PRAMIT PANI</h3>
+      <p>class: 10th</p>
+      <a href="https://instagram.com/pramit pani" target="_blank">🧑instagram</a> </div>
+      
+      <div class="student-card" data-name="suni dutt madangia" data-class="college drop out">
+        <img src="/image /sallu.jpg" alt="suni">
+        <h3>SUNI DUTT MADANGIA</h3>
+        <p>class: college drop out</p>
+        <a href="https://instagram.com/sunidutt29" target="_blank">🧑 Instagram</a>
+        </div>
+        <div class="student-card" data-name="samyan madangia" data-class="college drop out">
+          <img src="/image /amar.webp" alt="samyan">
+          <h3>samyan madangia</h3>
+          <p>class: college drop out</p>
+          <a href="https:// instagram.com/samyanmadangia" target ="_blank">🧑instagram</a>
+        </div>
+        <div class="student-card"data-name="ambran kadrak"data-class="college drop out">
+          <img src="/image /ambran.jpg" alt="Ambran">
+          <h3>Ambran kadraka</h3>
+          <p>class: college drop out</p>
+          <a href="https://instagram.com/itz_ambran" target="_blank">🧑instagram</a>
+        </div>
+        <div class="student-card" data-name="sambit madangia" data-class="2nd year">
+          <img src="/image /sambit.webp" alt="sambit">
+          <h3>sambit madangia</h3>
+          <p>class: 2nd year</p>
+          <a href="https://instagram.com/mr.sambit.27" target="_blank">🧑instagram</a>
+        </div>
+        <div class="student-card" data-name="rahul kadraka" data-class="first year">
+          <img src="/image /rahul.jpg" alt="rahul"> 
+          <h3>rahul kadraka</h3>
+          <p>class: first year</p>
+          <a href="https://instagram.com/itz_rahul" target="_blank">🧑instagram</a>
+        </div>
+        <div class="student-card" data-name="edon kaunri" data-class="2nd year">
+          <img src="/image /suni.jpg" alt="edon">
+          <h3>edon kaunri</h3>
+          <p>class: 2nd year</p>
+          <a href="https://instagram.com/mr_adan_5" target="_blank">🧑instagram</a>
+        </div>
+        <div class="student-card" data-name="udyan kaunri" data-class="8th">
+          <img src="/image /udyan.jpg" alt="udyan">
+          <h3>udyan kaunri</h3>
+          <p>class: 8th</p>
+          <a href="https://Instagram.com/mr_adan_5" target="_blank">🧑instagram</a>
+        </div>
+        <div class="student-card" data-name="atulya pani"  data-class="10th">
+          <img src="/image /mana.jpg" alt="mana">
+          <h3>Atulya pani  </h3>
+          <p>10th pass out</p>
+          <a href="https://instagram.com/romia_1969" target="_blank">🧑instagram</a>
+        </div>
+        <div class="student-card" data-name="chulbul madangia" data-class="2nd year">
+          <img src="/image /chulbul.webp" alt="chulbul">
+          <h3>Chulbul madangia</h3>
+          <p>class: 2nd</p>
+          <a href="https://Instagram.com/chulbulmalik5" target="_blank">🧑 Instagram</a>
+        </div>
+        <div class="student-card" data-name="aman pani" data-class="9th">
+          <img src="/image /amar.webp" alt="aman">
+          <h3>Aman pani</h3>
+          <p>class: 9th</p>
+          <a href="https://Instagram.com/amarpani8" target="_blank">🧑 Instagram</a>
+        </div>
+        <div class="student-card" data-name="prince pani" data-class="first year">
+          <img src="/image /suni.jpg" alt="prince">
+          <h3>prince pani</h3>
+          <p>class: first year</p>
+          <a href="https://Instagram.com/prince pani" target="_blank">🤵 Instagram</a>
+        </div>
+  <div class="student-card" data-name="janush mandala" data-class="first year">
+    <img src="/image /suni.jpg" alt="janush">
+    <h3>janush mandala</h3>
+    <p>class: first year</p>
+    <a href="https://Instagram.com/im.janu93" target="_blank">🧑 Instagram</a>
+  </div>
+  <div class="student-card" data-name="amir madangia" data-class="first year">
+    <img src="/image /suni.jpg" alt="amir">
+    <h3>Amir madangia</h3>
+    <p>class: first year</p>
+    <a href="https://Instagram.com/amir madangia" target="_blank">🧑 Instagram</a>
+  </div>
+  <div class="student-card" data-name="Aashik madangia" data-class="+2 pass">
+    <img src="/image /asik.jpg" alt="aashik">
+    <h3>Aashik madangia</h3>
+    <p>class: +2 pass</p>
+    <a href="https://Instagram.com/its_asish_18" target="_blank">🧑 Instagram</a>
+  </div>
+  <div class="student-card" data-name="Rohit pani" data-class="10th">
+    <img src="/image /suni.jpg" alt="Rohit">
+    <h3>Rohit pani</h3>
+    <p>class: 10th</p>
+    <a href="https://Instagram.com/Rohit pani" target="_blank">🧑 Instagram</a>
+  </div>
+  <div class="student-card" data-name="deepu kaunri" data-class="10th">
+    <img src="/image /suni.jpg" alt="deepu">
+    <h3>Deepu kaunri</h3>
+    <p>class: 10th pass out</p>
+    <a href="https://instagram.com/d_expak" target="_blank">🧑instagram</a>
+  </div>
+   <div class="student-card" data-name="udit madangia" data-class="10th">
+     <img src="/image /suni.jpg" alt="udit">
+     <h3>Udit madangia</h3>
+     <p>class: 10th</p>
+     <a href="httpsP://instagram.com/itz_udit_mg" target="_blank">🧑instagram</a>
+   </div>
+   <div class="student-card" data-name="nadim pradhani" data-class="first year">
+     <img src="/image /suni.jpg" alt="nadim">
+     <h3>Nadim pradhani</h3>
+     <p>class: first year</p>
+     <a href="https://instagram.com/nandim_pradhani" target="_blank">🧑instagram</a>
+   </div>
+   <div class="student-card" data-name="majesh singh" data-class="college drop out">
+     <img src="/image /dany.heic" alt="majesh">
+     <h3>MAJESH SIMGH</h3>
+     <p>class: college drop out</p>
+     <a href="https://instagram.com/mr_dannysingh" target="_blank">🧑instagram</a>
+   </div>
+   <div class="student-card" data-name="naseeb madangia"    data-class="college pass out">
+     <img src="/image /naseeb.heic" alt="naseeb"
+     <h3>NASEEB MADANGIA</h3>
+     <p>class: college pass out</p>
+     <a href="https://instagram.com/naseeb_morgab" target="_blank">🧑instagram</a>
+   </div>
+   <div class="student-card" data-name="sadananda lima" data-class="10th">
+     <img src="/image /sada.webp" alt="sadananda">
+     <h3>SADANANDA LIMA</h3>
+     <p>class: 10th drop out</p>
+     <a href="https://instagram.com/sadalima143" target="_blank">🧑instagram</a>
+   </div>
+   <div class="student-card" data-name="amar pani" data-class="college pass out">
+     <img src="/image /amar.webp" alt="amar">
+     <h3>AMAR PANI</h3>
+     <p>class: college pass out</p>
+  <a href="https://instagram.com/amarpani8" target="_blank">🧑instagram</a>
+   </div>
+    <div class="student-card" data-name="gidyan kaunri" data-class="college drop out">
+      <img src="/image /gk.webp" alt="gidyan">
+      <h3>GIDYAN KAUNRI</h3>
+      <p>class: college drop out</p>
+       <a href="https://instagram.com/s_g_rider32" target="_blank">🧑instagram</a>
+       </div>
+       <div class="student-card" data-name="vishal dutt madangia" data-class="6th">
+         <img src="/image /Vishal.webp" alt="vishal">
+         <h3>VISHAL DUTT MADANGIA</h3>
+         <p>class: 6th</p>
+         <a href="https://Instagram.com/bi.bhu546" target="_blank">🧑 Instagram</a>
+       </div>
+     
+   
+        
+        
+        
+        
+  </div>
+  </div>
+
+<script>
+  function filterStudents() {
+    const search = document.getElementById("search").value.toLowerCase();
+    const selectedClass = document.getElementById("classFilter").value;
+    const students = document.querySelectorAll(".student-card");
+
+    students.forEach(student => {
+      const name = student.getAttribute("data-name").toLowerCase();
+      const studentClass = student.getAttribute("data-class");
+      const matchName = name.includes(search);
+      const matchClass = selectedClass === "" || studentClass === selectedClass;
+
+      student.style.display = matchName && matchClass ? "block" : "none";
+    });
+  }
+
+  function toggleDark() {
+    document.body.classList.toggle("dark-mode");
+  }
+</script>
+
+</body>
+</html>
+<head>
+  <meta charset="UTF-8">
+  <title>Badapur Village Students</title>
+  <link rel="stylesheet" href="style.css">
+</head>
